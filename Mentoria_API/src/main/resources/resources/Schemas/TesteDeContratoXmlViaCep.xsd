@@ -1,0 +1,18 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="xmlcep">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element type="xs:string" name="cep"/>
+                <xs:element type="xs:string" name="logradouro"/>
+                <xs:element type="xs:string" name="complemento"/>
+                <xs:element type="xs:string" name="bairro"/>
+                <xs:element type="xs:string" name="localidade"/>
+                <xs:element type="xs:string" name="uf"/>
+                <xs:element type="xs:int" name="ibge"/>
+                <xs:element type="xs:string" name="gia"/>
+                <xs:element type="xs:byte" name="ddd"/>
+                <xs:element type="xs:short" name="siafi"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
