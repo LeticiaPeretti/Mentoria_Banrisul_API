@@ -63,7 +63,7 @@ public class CriarContatoComFakerTestBase {
 	                state,
 	                city
 	        );
-
+	        System.out.println(email);
 	        FileOperations.setProperties("contact", "name", name);
 	        FileOperations.setProperties("contact", "lastName", lastName);
 	        FileOperations.setProperties("contact", "email", email);

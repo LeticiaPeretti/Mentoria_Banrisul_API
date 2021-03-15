@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import testBases.apiDeTarefas.CriarContatoComFakerTestBase;
 
+
 import static io.restassured.RestAssured.given;
 
 public class PostCriarContatoComFaker extends CriarContatoComFakerTestBase {
@@ -42,15 +43,20 @@ public class PostCriarContatoComFaker extends CriarContatoComFakerTestBase {
 
         System.out.println("Estou feliz!");
         id = payload.then().extract().path("data.id");
+        String email = payload.then().extract().path("data.attributes.email");
+        
+        System.out.println(email);
 
         String nomeDaResposta = payload.then().extract().path("data.attributes.name");
         String nomeGuardado = FileOperations.getProperties("contact").getProperty("name");
-
+        System.out.println( "nomeDaResposta" + nomeDaResposta);
+        System.out.println ("nomeGuardado" + nomeGuardado);
         Assertions.assertEquals(nomeGuardado,nomeDaResposta);
+        
 
         deletaContato();
 
-        payload.then().body(JsonSchemaValidator.matchesJsonSchemaInClasspath("Schemas/CriarContatoJsonSchema.json"));
+        payload.then().body(JsonSchemaValidator.matchesJsonSchemaInClasspath("resources/Schemas/CriarContatoJsonSchema.json"));
     }
 
     public void deletaContato(){
